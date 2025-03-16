@@ -1,26 +1,106 @@
 @import "tailwindcss";
 
+/* Light Mode Defaults */
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #fafaf9;
+  --foreground: #212020;
+  --card-blue: #d9e4f0;
+  --inner-card-blue: #b6c6d7;
+  --blue-text: #2b4b84;
+  --card-green: #e4eed2;
+  --inner-card-green: #a7ba66;
+  --green-text: #7f935b;
+  --shade-d: #cececc;
+  --shade-l: #ececea;
+  --home-card: #c9dbab;
+
+  /* Typography */
+  --font-primary: "Poppins", sans-serif;
+  --font-secondary: "Roboto", sans-serif;
+  --font-heading: "Beunard", sans-serif;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-primary);
+  --font-heading: var(--font-heading);
+  --font-secondary: var(--font-secondary);
 }
 
+/* Dark Mode */
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --background: #2b2929;
+    --foreground: #fffafa;
+    --card-blue: #1b3148;
+    --inner-card-blue: #24384e;
+    --blue-text: #7698b8;
+    --card-green: #353f24;
+    --inner-card-green: #424f2d;
+    --green-text: #c0d49e;
+    --shade-d: #3e3c3c;
+    --shade-l: #313030;
+    --home-card: #374126;
   }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-primary);
+}
+
+/* Typography */
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+}
+
+h1 {
+  font-size: 2.5rem;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 1.75rem;
+  font-weight: 500;
+}
+
+p {
+  font-family: var(--font-primary);
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Tailwind Utility Overrides */
+.bg-primary {
+  background-color: var(--background);
+}
+.bg-card-blue {
+  background-color: var(--card-blue);
+}
+.bg-card-green {
+  background-color: var(--card-green);
+}
+.text-blue {
+  color: var(--blue-text);
+}
+.text-green {
+  color: var(--green-text);
+}
+.shadow {
+  box-shadow: 0px 4px 10px var(--shade-l);
+}
+.border {
+  border: 1px solid var(--shade-d);
+}
+.rounded {
+  border-radius: 8px;
 }
